@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+
 export const AuthContext = React.createContext();
 
 const addItem = (key, value = "") => {
@@ -18,6 +20,7 @@ const isValidToken = () => {
 };
 
 const AuthProvider = (props) => {
+  const history = useHistory();
   const [loggedIn, setLoggedIn] = useState(isValidToken());
   const [token, setToken] = useState(null);
 
@@ -26,12 +29,14 @@ const AuthProvider = (props) => {
     setToken(token);
     addItem("token", token);
     setLoggedIn(true);
+    history.push("/");
   };
 
   const logOut = () => {
     setToken(null);
     clearItem("token");
     setLoggedIn(false);
+    history.push("/");
   };
 
   return (

@@ -9,7 +9,11 @@ import "./SiteLayout.css";
 const { Header, Footer, Content } = Layout;
 
 const SiteLayout = ({ children }) => {
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut();
+  };
 
   return (
     <Layout>
@@ -21,7 +25,7 @@ const SiteLayout = ({ children }) => {
           </Menu.Item>
           {loggedIn ? (
             <Menu.Item key="2">
-              <NavLink to="/logout">Log out</NavLink>
+              <a onClick={handleLogout}>Log out</a>
             </Menu.Item>
           ) : (
             <Menu.Item key="1">

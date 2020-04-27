@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { Form, Input, Button, message } from "antd";
+
+import { AuthContext } from "../context/AuthProvider";
 
 const layout = {
   labelCol: {
@@ -18,12 +20,15 @@ const tailLayout = {
 };
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
   const onFinish = ({ email, password }) => {
     axios
       .post("https://reqres.in/api/login", { email, password })
       .then((response) => {
         console.log(response, "response");
-        const { token } = response.data;
+
+        signIn(response.data);
       })
       .catch((error) => {
         console.log(error, "error");
