@@ -25,7 +25,9 @@ const SiteLayout = ({ children }) => {
           </Menu.Item>
           {loggedIn ? (
             <Menu.Item key="2">
-              <a onClick={handleLogout}>Log out</a>
+              <NavLink to="#" onClick={handleLogout}>
+                Log out
+              </NavLink>
             </Menu.Item>
           ) : (
             <Menu.Item key="1">
