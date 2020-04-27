@@ -1,26 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Layout } from "antd";
 
+import SiteLayout from "./container/SiteLayout";
 import Routes from "./router";
 
 import "antd/dist/antd.css";
 
 import * as serviceWorker from "./serviceWorker";
 
-const { Header, Footer, Content } = Layout;
-
 const App = () => (
-  <Layout>
-    <Header>EzySign</Header>
-    <Content>
-      <BrowserRouter>
+  <>
+    <BrowserRouter>
+      <SiteLayout>
         <Routes />
-      </BrowserRouter>
-    </Content>
-    <Footer>&copy;EzySign</Footer>
-  </Layout>
+      </SiteLayout>
+    </BrowserRouter>
+  </>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
