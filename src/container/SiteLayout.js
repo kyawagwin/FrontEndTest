@@ -15,7 +15,7 @@ const SiteLayout = ({ children }) => (
           <NavLink to="/">Home</NavLink>
         </Menu.Item>
         <Menu.Item key="1">
-          <NavLink to="/login">Sign in</NavLink>
+          <NavLink to="/login">Log in</NavLink>
         </Menu.Item>
       </Menu>
     </Header>

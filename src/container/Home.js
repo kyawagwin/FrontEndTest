@@ -5,7 +5,7 @@ import axios from "axios";
 import ColorList from "../components/ColorList";
 
 const Home = () => {
-  const [state, setState] = useState([]);
+  const [colors, setColors] = useState([]);
 
   useEffect(() => {
     axios
@@ -14,7 +14,7 @@ const Home = () => {
         // handle success
         const { data } = response.data;
 
-        setState(data);
+        setColors(data);
       })
       .catch((error) => {
         // handle error
@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <Fragment>
       <h1>Home</h1>
-      <ColorList colors={state} />
+      <ColorList colors={colors} />
     </Fragment>
   );
 };

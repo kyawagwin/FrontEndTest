@@ -2,8 +2,6 @@ import React from "react";
 import { List, Avatar } from "antd";
 
 const ColorList = ({ colors }) => {
-  console.log(colors);
-
   return (
     <List
       itemLayout="horizontal"

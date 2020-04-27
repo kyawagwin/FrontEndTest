@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
+import AuthProvider from "./context/AuthProvider";
 import SiteLayout from "./container/SiteLayout";
 import Routes from "./router";
 
@@ -12,9 +13,11 @@ import * as serviceWorker from "./serviceWorker";
 const App = () => (
   <>
     <BrowserRouter>
-      <SiteLayout>
-        <Routes />
-      </SiteLayout>
+      <AuthProvider>
+        <SiteLayout>
+          <Routes />
+        </SiteLayout>
+      </AuthProvider>
     </BrowserRouter>
   </>
 );
